@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NetSuiteController;
+use App\Http\Controllers\NetSuiteAIController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,12 @@ use App\Http\Controllers\NetSuiteController;
 |
 */
 
-// Execute SuiteQL query
+// Direct SuiteQL query execution
 Route::post('/netsuite/suiteql', [NetSuiteController::class, 'executeSuiteQL']);
 
+// AI Agent endpoints
+Route::post('/netsuite/ai/ask', [NetSuiteAIController::class, 'ask']);
+Route::get('/netsuite/ai/schema', [NetSuiteAIController::class, 'getSchema']);
+Route::get('/netsuite/ai/tables', [NetSuiteAIController::class, 'listTables']);
+Route::get('/netsuite/ai/status', [NetSuiteAIController::class, 'checkStatus']);
 

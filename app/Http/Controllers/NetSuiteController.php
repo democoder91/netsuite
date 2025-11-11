@@ -43,7 +43,7 @@ class NetSuiteController extends Controller
      * @return array
      * @throws Exception
      */
-    protected function sendSuiteQLQuery(string $query): array
+    public function sendSuiteQLQuery(string $query): array
     {
         $url = config('netsuite.host') . '/services/rest/query/v1/suiteql';
 
