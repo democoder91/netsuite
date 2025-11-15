@@ -59,7 +59,7 @@ class LocalAIModel implements AIModelInterface
         $prompt = "The user asked: \"{$userPrompt}\"\n\n";
         $prompt .= "I executed this SuiteQL query: {$query}\n\n";
         $prompt .= "Here's the data returned from NetSuite:\n{$dataJson}\n\n";
-        $prompt .= "Please provide a clear, human-readable summary as styled html that answers the user's question. ";
+        $prompt .= "Please provide a clear, human-readable summary that answers the user's question. ";
         $prompt .= "If there are multiple records, summarize key findings. Format numbers appropriately.";
 
         $response = $this->callLocalAI($systemPrompt, $prompt);

@@ -74,6 +74,7 @@ class NetSuiteAIController extends Controller
     }
 
     /**
+     *
      * Check AI model status
      *
      * @param Request $request

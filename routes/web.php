@@ -16,6 +16,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 Route::get('/', function () {
-    return view('welcome');
+    // send a get record request to netsuite for a vendor return authorization record with internal id 12345
+    $service = new NetSuiteService();
+    $getRequest = new GetRequest();
+    $recordRef = new RecordRef();
+    $recordRef->internalId = '12345';
+    $recordRef->type = RecordType::vendorReturnAuthorization;
+    $getRequest->baseRef = $recordRef;
+    $getResponse = $service->get($getRequest);
+    dd($getResponse);
 });
-
